@@ -1,28 +1,23 @@
 # PAudio
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/paudio`. To experiment with that code, run `bin/console` for an interactive prompt.
+Query and control PulseAudio with Ruby.
 
-TODO: Delete this and the text above, and describe your gem
+## Install
 
-## Installation
+### Bundler: `gem "paudio"`
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'paudio'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install paudio
+### RubyGems: `gem install paudio`
 
 ## Usage
 
-TODO: Write usage instructions here
+```rb
+require 'paudio'
+
+sinks = PAudio::Sinks.list
+puts sinks.first.volume.percent # Get volume as percentage
+puts sinks.first.raise_volume(10) # Raise volume by percentage
+puts sinks.first.lower_volume(10) # Lower volume by percentage
+```
 
 ## Development
 
@@ -34,8 +29,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/paudio. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
